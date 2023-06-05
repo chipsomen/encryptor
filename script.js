@@ -121,7 +121,7 @@ function create(){
     let ccvalue = Math.floor(Math.random() * (15 - 1) ) + 1;
     
     let encrypted = amsco(amsco(caesar(input.value, ccvalue), key), key2);
-    output.innerHTML = `{\n    'encrypted': ${encrypted}\n    'CCS': ${ccvalue}\n    'AK1': ${key}\n    'AK2': ${key2}\n}`;
+    output.innerHTML = `{\n    "encrypted": "${encrypted}",\n    "CCS": ${ccvalue},\n    "AK1": ${key},\n    "AK2": ${key2}\n}`;
 }
 
 function keyDown(e) { 
