@@ -103,12 +103,25 @@ function caesar(str, shift){
     return newstr;
 }
 
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
 function create(){
     let input = document.getElementById("input");
     let output = document.getElementById("output");
     
-    let encrypted = amsco(amsco(caesar(input.value, 4), 31245), 43152);
-    output.innerHTML = encrypted;
+    let keys = [(Array.from(String("12345"), Number)), (Array.from(String("12345"), Number))];
+    shuffle(keys[0]); shuffle(keys[1]);
+    let key = keys[0].join('');
+    let key2 = keys[1].join('');
+    let ccvalue = Math.floor(Math.random() * (15 - 1) ) + 1;
+    
+    let encrypted = amsco(amsco(caesar(input.value, ccvalue), key), key2);
+    output.innerHTML = `{\n    'encrypted': ${encrypted}\n    'CCS': ${ccvalue}\n    'AK1': ${key}\n    'AK2': ${key2}\n}`;
 }
 
 function keyDown(e) { 
