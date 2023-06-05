@@ -1,0 +1,13 @@
+body {
+    background-color: rgb(60, 60, 60);
+}
+
+input, textarea {
+    display: block;
+    margin-bottom: 10px;
+    background-color: rgb(120, 120, 120);
+    border-color: rgb(120, 120, 120);
+    border-style: solid;
+    border-radius: 5px;
+    font-family: Monospace;
+}
